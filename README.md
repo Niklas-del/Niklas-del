@@ -4,7 +4,7 @@
 
 🌱 Currently building **Dao Chronicle**, a tabletop-RPG companion app — see below.
 
-**[niklas-del.github.io](https://niklas-del.github.io)** — projects, in more detail
+**[niklas-del.github.io](https://niklas-del.github.io/Niklas-del/)** — projects, in more detail
 
 ---
 
