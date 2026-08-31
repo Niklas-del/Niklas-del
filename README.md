@@ -16,7 +16,7 @@ The piece I'm proudest of is _[the schema / the auth flow / the thing that was h
 **Backend** · your language and framework
 **Database** · SQL
 
-[Live](https://example.com) · [Code](https://github.com/Niklas-del/DaoChronicles)
+[Live](https://daochronicle.netlify.app/login.html) · [Code](https://github.com/Niklas-del/DaoChronicles)
 
 ---
 
