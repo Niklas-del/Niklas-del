@@ -171,6 +171,57 @@
   .row .tier{font-family:"Bricolage Grotesque",sans-serif;font-weight:600}
   .row .tech{opacity:0.88;line-height:1.45}
 
+  /* ---------- games ---------- */
+  .cultivate{margin-top:2.5rem;padding-top:2rem;border-top:1px dashed var(--rule)}
+  .cultivate-head h3{font-size:1.2rem}
+  .cultivate-head p{margin:0.4rem 0 0}
+  .cultivate-widget{
+    margin-top:1.4rem;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:1.2rem;
+  }
+  #meditate-btn{
+    font-family:"Bricolage Grotesque",sans-serif;
+    font-weight:600;
+    font-size:0.95rem;
+    background:var(--l3);
+    color:var(--paper-2);
+    border:0;
+    border-radius:4px;
+    padding:0.75rem 1.3rem;
+    cursor:pointer;
+    transition:transform .15s ease, background .15s ease;
+  }
+  #meditate-btn:hover{background:var(--l2)}
+  #meditate-btn:active{transform:scale(0.96)}
+  #meditate-btn:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+  .cultivate-bar{
+    flex:1 1 14rem;
+    min-width:10rem;
+    height:0.6rem;
+    background:var(--paper-2);
+    border:1px solid var(--rule);
+    border-radius:999px;
+    overflow:hidden;
+  }
+  .cultivate-fill{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,var(--l1),var(--brass));
+    transition:width .25s ease;
+  }
+  .cultivate-stats{
+    display:flex;
+    flex-direction:column;
+    gap:0.15rem;
+    font-family:"Bricolage Grotesque",sans-serif;
+    font-size:0.9rem;
+  }
+  .cultivate-stats #cultivate-stage{font-weight:600;color:var(--l3)}
+  .cultivate-stats #cultivate-qi{color:var(--muted)}
+
   /* ---------- toolbox ---------- */
   .tools{
     display:grid;
@@ -209,6 +260,7 @@
     <span class="mark grotesk">Niklas</span>
     <nav>
       <a href="#work">Work</a>
+      <a href="#games">Games</a>
       <a href="#tools">Toolbox</a>
       <a href="#contact">Contact</a>
       <a href="https://github.com/Niklas-del">GitHub</a>
@@ -244,27 +296,6 @@
       <span class="note">What each project is made of, layer by layer.</span>
     </div>
 
-    <!-- ===== FLAGSHIP PROJECT ===== -->
-    <article class="project">
-      <div>
-        <h3>DaoChronicles</h3>
-        <!-- TODO: two or three sentences. What does it do, who is it for,
-             and what was the hardest part to get right? Specifics beat adjectives. -->
-        <p>A full-stack web application, built end to end — the interface, the server that powers it, and the relational database it all runs on.</p>
-        <p>Replace this paragraph with the part you're proudest of: a schema decision, an auth flow, a performance problem you solved.</p>
-        <div class="links">
-          <a href="#">Live app</a>
-          <a href="#">Source</a>
-        </div>
-      </div>
-      <div class="breakdown">
-        <!-- TODO: put your real stack in the .tech spans -->
-        <div class="row l1"><span class="tier">Interface</span><span class="tech">Your frontend framework, styling</span></div>
-        <div class="row l2"><span class="tier">Server</span><span class="tech">Your backend language and framework</span></div>
-        <div class="row l3"><span class="tier">Data</span><span class="tech">SQL — which database, and how it's hosted</span></div>
-      </div>
-    </article>
-
     <!-- ===== DUPLICATE THIS BLOCK FOR EACH FURTHER PROJECT ===== -->
     <article class="project">
       <div>
@@ -282,6 +313,44 @@
     </article>
   </section>
 
+  <section id="games">
+    <div class="section-head">
+      <h2>Games</h2>
+      <span class="note">The project with a d20 attached, plus a tiny toy to play with.</span>
+    </div>
+
+    <article class="project">
+      <div>
+        <h3>Dao Chronicle <span class="flag">in development</span></h3>
+        <p>A bilingual (English/German) character sheet and campaign companion for a xianxia cultivation tabletop RPG. Players track Qi and Soul cultivation, equipment, alchemy and quests; the DM runs the whole world from a separate admin console.</p>
+        <p>There's no custom backend at all — Supabase (Postgres + Row Level Security) handles auth, data and storage straight from the browser, with database policies doing the authorization work a server would normally do.</p>
+        <div class="links">
+          <a href="#">Source</a>
+        </div>
+      </div>
+      <div class="breakdown">
+        <div class="row l1"><span class="tier">Interface</span><span class="tech">Vanilla JS (ES2020+), Canvas API, hand-written CSS theme</span></div>
+        <div class="row l2"><span class="tier">Server</span><span class="tech">Supabase — Auth, PostgREST, Storage</span></div>
+        <div class="row l3"><span class="tier">Data</span><span class="tech">PostgreSQL with Row Level Security policies</span></div>
+      </div>
+    </article>
+
+    <div class="cultivate">
+      <div class="cultivate-head">
+        <h3 class="grotesk">Try cultivating</h3>
+        <p class="note">A small taste of Dao Chronicle's progression system, running right here.</p>
+      </div>
+      <div class="cultivate-widget">
+        <button id="meditate-btn" type="button">☯ Meditate</button>
+        <div class="cultivate-bar"><div class="cultivate-fill" id="cultivate-fill"></div></div>
+        <div class="cultivate-stats">
+          <span id="cultivate-stage">Mortal</span>
+          <span id="cultivate-qi">0 / 10 Qi</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="tools">
     <div class="section-head">
       <h2>Toolbox</h2>
@@ -291,33 +360,33 @@
       <div>
         <h3 class="t1">Interface</h3>
         <ul>
-          <li>HTML, CSS</li>
-          <li>JavaScript</li>
-          <li>Your framework</li>
+          <li>HTML5, CSS3</li>
+          <li>JavaScript (ES2020+)</li>
+          <li>Canvas API</li>
         </ul>
       </div>
       <div>
         <h3 class="t2">Server</h3>
         <ul>
-          <li>Your backend language</li>
+          <li>Supabase (Auth, PostgREST, Storage)</li>
           <li>REST APIs</li>
-          <li>Authentication</li>
+          <li>Row Level Security</li>
         </ul>
       </div>
       <div>
         <h3 class="t3">Data</h3>
         <ul>
-          <li>SQL</li>
+          <li>PostgreSQL</li>
           <li>Schema design</li>
-          <li>Migrations</li>
+          <li>JSONB for irregular data</li>
         </ul>
       </div>
       <div>
         <h3>Workflow</h3>
         <ul>
           <li>Git and GitHub</li>
-          <li>Your editor</li>
-          <li>Deployment</li>
+          <li>Netlify deployment</li>
+          <li>No-build vanilla stack</li>
         </ul>
       </div>
     </div>
@@ -327,7 +396,7 @@
     <div class="section-head"><h2>Get in touch</h2></div>
     <p>The fastest way to reach me is email. I'm happy to walk through any of the code above.</p>
     <ul>
-      <li><a href="mailto:you@example.com">you@example.com</a></li>
+      <li><a href="mailto:niklaspiekarski@pm.me">niklaspiekarski@pm.me</a></li>
       <li><a href="https://github.com/Niklas-del">github.com/Niklas-del</a></li>
       <li><a href="#">LinkedIn</a></li>
     </ul>
@@ -337,6 +406,50 @@
     Built by hand. Hosted on GitHub Pages.
   </footer>
 </div>
+
+<script>
+(function(){
+  var stages = [
+    ["Mortal",10],["Beginner",15],["Veteran",20],["Master",25],["Expert",30],
+    ["Sage",40],["Lord",50],["Monarch",65],["Immortal",80],["Saint",100],
+    ["Earth God",120],["Sky God",150],["Dao Completion",200]
+  ];
+  var btn = document.getElementById('meditate-btn');
+  var fill = document.getElementById('cultivate-fill');
+  var stageEl = document.getElementById('cultivate-stage');
+  var qiEl = document.getElementById('cultivate-qi');
+  if(!btn) return;
+
+  var qi = Number(localStorage.getItem('cultivateQi')) || 0;
+  var stageIndex = 0;
+
+  function render(){
+    var remaining = qi;
+    var idx = 0;
+    while(idx < stages.length - 1 && remaining >= stages[idx][1]){
+      remaining -= stages[idx][1];
+      idx++;
+    }
+    stageIndex = idx;
+    var need = stages[idx][1];
+    var pct = idx === stages.length - 1 ? 100 : Math.min(100, (remaining / need) * 100);
+    fill.style.width = pct + '%';
+    stageEl.textContent = stages[idx][0];
+    qiEl.textContent = idx === stages.length - 1
+      ? 'Dao Completion reached'
+      : remaining + ' / ' + need + ' Qi';
+  }
+
+  btn.addEventListener('click', function(){
+    if(stageIndex === stages.length - 1) return;
+    qi += 1 + Math.floor(Math.random() * 3);
+    localStorage.setItem('cultivateQi', qi);
+    render();
+  });
+
+  render();
+})();
+</script>
 
 </body>
 </html>
