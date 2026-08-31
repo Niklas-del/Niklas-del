@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Niklas — full-stack developer</title>
+<meta name="description" content="Niklas builds web applications end to end: interface, server logic and database.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#e6e8e4;
+    --paper-2:#f2f3f0;
+    --ink:#16211d;
+    --muted:#5d6b65;
+    --l1:#4e8f86;
+    --l2:#2c6660;
+    --l3:#133f3a;
+    --brass:#a9781c;
+    --rule:#c8ccc6;
+    --measure:62ch;
+  }
+
+  *{box-sizing:border-box}
+
+  html{-webkit-text-size-adjust:100%}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Source Serif 4",Georgia,serif;
+    font-size:clamp(1rem,0.96rem + 0.2vw,1.1rem);
+    line-height:1.65;
+  }
+
+  .wrap{
+    width:min(68rem,100% - 2.5rem);
+    margin-inline:auto;
+  }
+
+  h1,h2,h3,.grotesk{
+    font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+    font-weight:600;
+    line-height:1.05;
+    letter-spacing:-0.02em;
+    margin:0;
+  }
+
+  a{color:inherit;text-decoration-color:var(--brass);text-underline-offset:3px}
+  a:hover{text-decoration-thickness:2px}
+  a:focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:2px}
+
+  /* ---------- masthead ---------- */
+  .masthead{
+    display:flex;
+    flex-wrap:wrap;
+    gap:1rem 2rem;
+    align-items:baseline;
+    justify-content:space-between;
+    padding:1.75rem 0 0;
+  }
+  .mark{font-size:1.05rem;font-weight:800;letter-spacing:-0.01em}
+  .masthead nav{display:flex;gap:1.5rem;font-size:0.95rem}
+  .masthead nav a{text-decoration:none;border-bottom:1px solid transparent;padding-bottom:2px}
+  .masthead nav a:hover{border-bottom-color:var(--brass)}
+
+  /* ---------- hero ---------- */
+  .hero{
+    display:grid;
+    grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);
+    gap:3.5rem;
+    align-items:end;
+    padding:4.5rem 0 4rem;
+  }
+  .hero h1{
+    font-size:clamp(2.9rem,1.6rem + 5.4vw,5.4rem);
+    font-weight:800;
+  }
+  .hero p{
+    max-width:var(--measure);
+    margin:1.5rem 0 0;
+  }
+  .hero .sub{color:var(--muted)}
+
+  /* ---------- the stack figure (signature element) ---------- */
+  .stack{display:flex;flex-direction:column;gap:0.4rem}
+  .layer{
+    color:var(--paper-2);
+    padding:0.9rem 1.1rem;
+    display:flex;
+    align-items:baseline;
+    gap:0.9rem;
+  }
+  .layer .name{
+    font-family:"Bricolage Grotesque",sans-serif;
+    font-weight:600;
+    font-size:1.05rem;
+    flex:0 0 auto;
+  }
+  .layer .what{font-size:0.92rem;opacity:0.85;line-height:1.4}
+  .l1{background:var(--l1)}
+  .l2{background:var(--l2)}
+  .l3{background:var(--l3)}
+
+  @media (prefers-reduced-motion:no-preference){
+    .layer{animation:settle .55s cubic-bezier(.2,.7,.3,1) backwards}
+    .l1{animation-delay:.05s}
+    .l2{animation-delay:.15s}
+    .l3{animation-delay:.25s}
+    @keyframes settle{
+      from{opacity:0;transform:translateY(-10px)}
+      to{opacity:1;transform:none}
+    }
+  }
+
+  /* ---------- sections ---------- */
+  section{padding:3.5rem 0;border-top:1px solid var(--rule)}
+  .section-head{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:baseline;
+    gap:0.6rem 1.2rem;
+    margin-bottom:2rem;
+  }
+  .section-head h2{font-size:clamp(1.5rem,1.2rem + 1vw,2rem)}
+  .section-head .note{color:var(--muted);font-size:0.95rem}
+
+  /* ---------- projects ---------- */
+  .project{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,20rem);
+    gap:2rem 3rem;
+    padding:2rem 0;
+    border-top:1px solid var(--rule);
+  }
+  .project:first-of-type{border-top:0;padding-top:0}
+  .project h3{font-size:1.6rem}
+  .project h3 .flag{
+    display:inline-block;
+    font-family:"Source Serif 4",serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:0.85rem;
+    letter-spacing:0;
+    color:var(--brass);
+    margin-left:0.7rem;
+    vertical-align:middle;
+  }
+  .project p{margin:0.9rem 0 0;max-width:var(--measure)}
+  .project .links{
+    margin-top:1.2rem;
+    display:flex;
+    gap:1.4rem;
+    font-family:"Bricolage Grotesque",sans-serif;
+    font-size:0.95rem;
+  }
+
+  /* per-project layer breakdown, reusing the hero's visual language */
+  .breakdown{display:flex;flex-direction:column;gap:0.35rem;align-self:start}
+  .row{
+    display:grid;
+    grid-template-columns:5.5rem minmax(0,1fr);
+    gap:0.8rem;
+    align-items:baseline;
+    font-size:0.92rem;
+    padding:0.55rem 0.8rem;
+    color:var(--paper-2);
+  }
+  .row .tier{font-family:"Bricolage Grotesque",sans-serif;font-weight:600}
+  .row .tech{opacity:0.88;line-height:1.45}
+
+  /* ---------- toolbox ---------- */
+  .tools{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+    gap:2rem 3rem;
+  }
+  .tools h3{font-size:1.05rem;padding-bottom:0.5rem;border-bottom:2px solid var(--ink)}
+  .tools .t1{border-bottom-color:var(--l1)}
+  .tools .t2{border-bottom-color:var(--l2)}
+  .tools .t3{border-bottom-color:var(--l3)}
+  .tools ul{list-style:none;margin:0.9rem 0 0;padding:0}
+  .tools li{padding:0.2rem 0}
+
+  /* ---------- contact ---------- */
+  .contact p{max-width:var(--measure)}
+  .contact ul{list-style:none;margin:1.5rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:1.5rem;font-family:"Bricolage Grotesque",sans-serif}
+
+  footer{
+    padding:2.5rem 0 3rem;
+    color:var(--muted);
+    font-size:0.9rem;
+    border-top:1px solid var(--rule);
+  }
+
+  @media (max-width:52rem){
+    .hero{grid-template-columns:1fr;gap:2.5rem;padding:3rem 0 2.5rem;align-items:start}
+    .project{grid-template-columns:1fr;gap:1.5rem}
+    .project .breakdown{order:2}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="masthead">
+    <span class="mark grotesk">Niklas</span>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#tools">Toolbox</a>
+      <a href="#contact">Contact</a>
+      <a href="https://github.com/Niklas-del">GitHub</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div>
+      <h1>I build web apps<br>from screen to schema.</h1>
+      <p>Interfaces people actually use, the server logic behind them, and the database underneath. I like owning the whole thing, because that's where the interesting decisions live.</p>
+      <p class="sub"><!-- TODO: swap in your city / status / what you're after -->Based in Germany. Open to junior full-stack roles and collaborations.</p>
+    </div>
+
+    <div class="stack" aria-label="The three layers I work across">
+      <div class="layer l1">
+        <span class="name">Interface</span>
+        <span class="what">Layout, state, and everything the user touches</span>
+      </div>
+      <div class="layer l2">
+        <span class="name">Server</span>
+        <span class="what">Routes, auth, business rules, APIs</span>
+      </div>
+      <div class="layer l3">
+        <span class="name">Data</span>
+        <span class="what">Schema design, queries, migrations</span>
+      </div>
+    </div>
+  </div>
+
+  <section id="work">
+    <div class="section-head">
+      <h2>Work</h2>
+      <span class="note">What each project is made of, layer by layer.</span>
+    </div>
+
+    <!-- ===== FLAGSHIP PROJECT ===== -->
+    <article class="project">
+      <div>
+        <h3>DaoChronicles</h3>
+        <!-- TODO: two or three sentences. What does it do, who is it for,
+             and what was the hardest part to get right? Specifics beat adjectives. -->
+        <p>A full-stack web application, built end to end — the interface, the server that powers it, and the relational database it all runs on.</p>
+        <p>Replace this paragraph with the part you're proudest of: a schema decision, an auth flow, a performance problem you solved.</p>
+        <div class="links">
+          <a href="#">Live app</a>
+          <a href="#">Source</a>
+        </div>
+      </div>
+      <div class="breakdown">
+        <!-- TODO: put your real stack in the .tech spans -->
+        <div class="row l1"><span class="tier">Interface</span><span class="tech">Your frontend framework, styling</span></div>
+        <div class="row l2"><span class="tier">Server</span><span class="tech">Your backend language and framework</span></div>
+        <div class="row l3"><span class="tier">Data</span><span class="tech">SQL — which database, and how it's hosted</span></div>
+      </div>
+    </article>
+
+    <!-- ===== DUPLICATE THIS BLOCK FOR EACH FURTHER PROJECT ===== -->
+    <article class="project">
+      <div>
+        <h3>Second project <span class="flag">placeholder</span></h3>
+        <p>Even a small one counts. A tool you wrote for yourself, a script that automates something tedious, a course project you took further than required.</p>
+        <div class="links">
+          <a href="#">Source</a>
+        </div>
+      </div>
+      <div class="breakdown">
+        <div class="row l1"><span class="tier">Interface</span><span class="tech">—</span></div>
+        <div class="row l2"><span class="tier">Server</span><span class="tech">—</span></div>
+        <div class="row l3"><span class="tier">Data</span><span class="tech">—</span></div>
+      </div>
+    </article>
+  </section>
+
+  <section id="tools">
+    <div class="section-head">
+      <h2>Toolbox</h2>
+      <span class="note">Delete anything you wouldn't want to be asked about in an interview.</span>
+    </div>
+    <div class="tools">
+      <div>
+        <h3 class="t1">Interface</h3>
+        <ul>
+          <li>HTML, CSS</li>
+          <li>JavaScript</li>
+          <li>Your framework</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="t2">Server</h3>
+        <ul>
+          <li>Your backend language</li>
+          <li>REST APIs</li>
+          <li>Authentication</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="t3">Data</h3>
+        <ul>
+          <li>SQL</li>
+          <li>Schema design</li>
+          <li>Migrations</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Workflow</h3>
+        <ul>
+          <li>Git and GitHub</li>
+          <li>Your editor</li>
+          <li>Deployment</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="section-head"><h2>Get in touch</h2></div>
+    <p>The fastest way to reach me is email. I'm happy to walk through any of the code above.</p>
+    <ul>
+      <li><a href="mailto:you@example.com">you@example.com</a></li>
+      <li><a href="https://github.com/Niklas-del">github.com/Niklas-del</a></li>
+      <li><a href="#">LinkedIn</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    Built by hand. Hosted on GitHub Pages.
+  </footer>
+</div>
+
+</body>
+</html>

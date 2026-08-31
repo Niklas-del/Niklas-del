@@ -1,16 +1,40 @@
-## Hi there 👋
+# Niklas
 
-<!--
-**Niklas-del/Niklas-del** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+I build web applications end to end — the interface, the server behind it, and the database underneath.
 
-Here are some ideas to get you started:
+**[niklas-del.github.io](https://niklas-del.github.io)** — projects, in more detail
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+---
+
+### DaoChronicles
+
+<!-- Replace the two lines below with what it actually does and who it's for. -->
+A full-stack web app: frontend, backend API, and a relational database.
+The piece I'm proudest of is _[the schema / the auth flow / the thing that was hard]_.
+
+**Frontend** · your framework
+**Backend** · your language and framework
+**Database** · SQL
+
+[Live](https://example.com) · [Code](https://github.com/Niklas-del/DaoChronicles)
+
+---
+
+### What I work with
+
+| Layer | Tools |
+| --- | --- |
+| Interface | HTML, CSS, JavaScript, _your framework_ |
+| Server | _your backend language_, REST APIs, auth |
+| Data | SQL, schema design, migrations |
+| Workflow | Git, _your editor_, deployment |
+
+---
+
+### Currently
+
+- Building on DaoChronicles
+- Learning _[the next thing]_
+- Open to junior full-stack roles
+
+📫 you@example.com
